@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agl-game-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: agl-game-service
+  template:
+    metadata:
+      labels:
+        app: agl-game-service
+    spec:
+      containers:
+        - name: agl-game-service
+          image: agl-game-service:latest
+          imagePullPolicy: Never
