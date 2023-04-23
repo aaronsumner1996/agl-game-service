@@ -22,7 +22,7 @@ flyway:
 
 datasources:
   default:
-    url: ${PG_JDBC_URL:`jdbc:postgresql://10.99.92.204/usergameinfo`}
+    url: ${PG_JDBC_URL:`jdbc:postgresql://10.101.42.239/usergameinfo`}
     username: ${PG_USERNAME:amsumner}
     password: ${PG_PASSWORD:password}
     driver-class-name: org.postgresql.Driver
