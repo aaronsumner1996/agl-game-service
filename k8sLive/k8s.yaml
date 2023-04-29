@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agl-game-service
+spec:
+  selector:
+    matchLabels:
+      app: agl-game-service
+  template:
+    metadata:
+      labels:
+        app: agl-game-service
+    spec:
+      containers:
+        - name: agl-game-service
+          image: 945682028933.dkr.ecr.eu-north-1.amazonaws.com/agl-game-service:latest
+#          resources:
+#            limits:
+#              memory: "128Mi"
+#              cpu: "500m"
+          ports:
+            - name: tcp
+              containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: agl-game-service
+spec:
+  selector:
+    app: agl-game-service
+  ports:
+    - port: 80
+      targetPort: 8080
+  type: LoadBalancer

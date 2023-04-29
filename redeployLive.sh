@@ -6,4 +6,4 @@ kubectl delete service agl-game-service -n agl-dev
 
 docker build . -t agl-game-service
 
-kubectl create -f ./k8s -n agl-dev
+kubectl create -f ./k8sLive -n agl-dev

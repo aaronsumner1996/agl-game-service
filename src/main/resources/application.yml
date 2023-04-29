@@ -22,7 +22,7 @@ flyway:
 
 datasources:
   default:
-    url: ${PG_JDBC_URL:`jdbc:postgresql://10.101.42.239/usergameinfo`}
+    url: ${PG_JDBC_URL:`jdbc:postgresql://10.100.64.94/usergameinfo`}
     username: ${PG_USERNAME:amsumner}
     password: ${PG_PASSWORD:password}
     driver-class-name: org.postgresql.Driver
@@ -31,4 +31,4 @@ datasources:
 
 rawg-adapter:
   api:
-    url: http://agl-rawg-adapter:80
+    url: http://agl-rawg-adapter:8080
