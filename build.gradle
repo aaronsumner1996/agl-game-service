@@ -11,6 +11,10 @@ repositories {
 }
 
 dependencies {
+
+    implementation('io.micronaut.security:micronaut-security-jwt:3.10.0')
+    implementation('io.micronaut.security:micronaut-security-annotations:3.10.0')
+
     implementation 'org.projectlombok:lombok:1.18.20'
     annotationProcessor("io.micronaut:micronaut-http-validation")
     implementation("io.micronaut:micronaut-http-client")
