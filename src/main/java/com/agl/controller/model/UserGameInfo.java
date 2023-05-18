@@ -24,6 +24,9 @@ public class UserGameInfo {
     @NotNull
     private String gameName;
 
+    @NotNull
+    private GameStatus gameStatus;
+
     private BigDecimal gameTime;
 
     private List<String> platforms;

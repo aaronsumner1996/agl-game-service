@@ -37,6 +37,9 @@ public class UserGameInfoEntity implements Serializable {
     @Column(name = "game_time")
     private String gameTime;
 
+    @Column(name = "game_status")
+    private String gameStatus;
+
     @Type(type = "com.agl.persistence.entity.PostgresSqlStringArrayType")
     @Column(name = "platforms")
     private String[] platforms;

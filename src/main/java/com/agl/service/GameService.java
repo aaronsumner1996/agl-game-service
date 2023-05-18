@@ -3,6 +3,7 @@ package com.agl.service;
 import com.agl.client.GameAdapterClientFacade;
 import com.agl.client.model.RawgClientGameInfoResponse;
 import com.agl.client.model.RawgClientSearchResponse;
+import com.agl.controller.model.GameStatus;
 import com.agl.controller.model.RawgSearchRequest;
 import com.agl.controller.model.UserGameImages;
 import com.agl.controller.model.UserGameInfo;
@@ -93,6 +94,9 @@ public class GameService {
                 .gameSlug(userGameInfoEntity.getGameSlug())
                 .gameName(userGameInfoEntity.getGameName())
                 .userId(userGameInfoEntity.getUserId())
+                .gameStatus(Objects.isNull(userGameInfo.getGameStatus()) ?
+                        Objects.isNull(userGameInfoEntity.getGameStatus()) ?
+                                null : userGameInfoEntity.getGameStatus() : userGameInfo.getGameStatus().toString())
                 .platforms(Objects.isNull(platforms) ? userGameInfoEntity.getPlatforms() : platforms)
                 .gameTime(Objects.isNull(userGameInfo.getGameTime()) ? Objects
                         .isNull(userGameInfoEntity.getGameTime()) ? null : userGameInfoEntity
@@ -112,6 +116,8 @@ public class GameService {
                 .gameSlug(gameInfoEntity.getGameSlug())
                 .platforms(Arrays.asList(gameInfoEntity.getPlatforms()))
                 .userId(gameInfoEntity.getUserId())
+                .gameStatus(Objects.isNull(gameInfoEntity.getGameStatus()) ?
+                        null : GameStatus.valueOf(gameInfoEntity.getGameStatus()))
                 .gameTime(Objects.isNull(gameInfoEntity.getGameTime()) ?
                         null : new BigDecimal(gameInfoEntity.getGameTime()))
                 .build();
@@ -126,6 +132,7 @@ public class GameService {
                 .gameName(userGameInfo.getGameName())
                 .userId(userGameInfo.getUserId())
                 .platforms(platforms)
+                .gameStatus(userGameInfo.getGameStatus().toString())
                 .gameTime(Objects.isNull(userGameInfo.getGameTime()) ? null : userGameInfo.getGameTime().toString())
                 .gameSlug(userGameInfo.getGameSlug())
                 .build();
